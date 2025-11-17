@@ -1,0 +1,151 @@
+body {
+    font-family: Roboto, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f1f2f4;
+    margin: 0;
+}
+
+.product-showcase {
+    width: 320px; 
+    padding: 0; 
+    margin: 10px;
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.08); 
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image-container {
+    position: relative;
+    /* Ensure the image container has enough space */
+    max-height: 350px; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    height: auto;
+    /* CRITICAL: Reduce width to create space around the image */
+    width: 90%; 
+    display: block;
+    object-fit: contain;
+    padding: 5px 0;
+    /* CRITICAL: Negative margin to shift the smaller image left */
+    margin-left: -15px; 
+    margin-right: 0;
+}
+
+/* CORRECTED: Heart Icon Styling for a grey outline look */
+.heart-icon-grey {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #9e9e9e; 
+    cursor: pointer;
+    background-color: transparent; 
+    border-radius: 50%;
+    padding: 0;
+    line-height: 1;
+}
+
+/* Use a pseudo-element to render the heart symbol (♥) */
+.heart-icon-grey::before {
+    content: "♥"; 
+    font-size: 20px; 
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.product-details {
+    /* Padding matches the reference image spacing */
+    padding: 16px 18px 12px 18px; 
+    text-align: left;
+}
+
+.product-name {
+    font-size: 17px; 
+    font-weight: 500;
+    color: #212121;
+    margin-top: 0;
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.product-variant {
+    font-size: 14px;
+    color: #878787;
+    margin-bottom: 8px; 
+}
+
+.rating-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; 
+}
+
+.rating-badge {
+    background-color: #388e3c;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.reviews {
+    font-size: 14px;
+    color: #878787;
+    margin-right: 8px;
+}
+
+.assured-badge {
+    height: 13px; 
+    width: auto;
+    vertical-align: middle;
+}
+
+.price-section {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.current-price {
+    font-size: 18px; 
+    font-weight: bold;
+    color: #212121;
+    margin-right: 8px;
+}
+
+.original-price {
+    font-size: 14px;
+    color: #878787;
+    text-decoration: line-through;
+    margin-right: 8px;
+}
+
+.discount {
+    font-size: 14px;
+    font-weight: 500;
+    color: #388e3c;
+}
+
+.bank-offer {
+    font-size: 14px;
+    color: #388e3c;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0;
+}
