@@ -1,0 +1,125 @@
+/* Custom CSS Variables for Colors */
+:root {
+    --color-pink: #ffc0cb;       /* Light Pink */
+    --color-yellow: #fdd867;     /* Light Yellow */
+    --color-blue: #a3e4d7;       /* Light Blue/Teal for Time/Note */
+    --color-dark-blue: #1c2b4c;  /* Dark Blue for Text/Title */
+    --color-white: #ffffff;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif; /* Fallback font */
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container for the entire schedule */
+.schedule-container {
+    width: 900px;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-white);
+    padding: 30px;
+}
+
+/* Title Styling */
+.schedule-title {
+    font-family: 'Georgia', cursive; /* Simulating a script/fancy font */
+    font-size: 40px;
+    text-align: center;
+    color: var(--color-dark-blue);
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+}
+
+/* --- GRID LAYOUT --- */
+.timetable {
+    display: grid;
+    /* Define 6 columns: 1 for time, 5 for days. Each day column is equal width. */
+    grid-template-columns: 80px repeat(5, 1fr); 
+    /* The total number of rows is 1 (header) + 9 (time slots) = 10 rows. */
+    grid-template-rows: repeat(10, minmax(50px, auto)); 
+    gap: 5px; /* Small gap between cells */
+    text-align: center;
+}
+
+/* Header Cells (Time and Day) */
+.header {
+    font-weight: bold;
+    padding: 10px 5px;
+    border-radius: 5px;
+    color: var(--color-dark-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+/* Day Headers (Monday - Friday) */
+.day-col {
+    background-color: var(--color-yellow); /* Yellow background for day headers */
+}
+/* Overriding Monday's color for visual variety like the image */
+.monday {
+    background-color: var(--color-pink);
+}
+
+/* Time Column Cells */
+.time-col {
+    background-color: var(--color-blue);
+    color: var(--color-dark-blue);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Class/Subject Cells */
+.class {
+    padding: 10px 5px;
+    border-radius: 5px;
+    color: var(--color-dark-blue);
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: default;
+}
+
+/* Alternating Row Colors for Classes */
+.pink {
+    background-color: var(--color-pink);
+}
+.yellow {
+    background-color: var(--color-yellow);
+}
+
+/* Special Styling for Lunch */
+.lunch {
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #f7a39d !important; /* A slightly deeper, unified color for Lunch */
+}
+
+/* --- NOTE SECTION --- */
+.note-section {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: var(--color-blue); /* Light blue background for the note box */
+    border-radius: 5px;
+    color: var(--color-dark-blue);
+}
+
+.note-box {
+    margin-top: 5px;
+    padding: 5px 0;
+    font-size: 14px;
+}
