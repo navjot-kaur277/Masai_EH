@@ -6,6 +6,52 @@
     <title>Fleet Admin</title>
 </head>
 <body>
+    <div class="navbar">
+        <div> <strong>Fleet Dashboard</strong></div>
+           <div class="filters">
+            <select id = "filterCategory" onchange="applyFilters()">
+            <option> All </option>
+            <option > Auto </option>
+            <option > Car </option>
+            <option> Truck</option>
+            <option> Bus </option>
+            </select>
+
+            <select id = "Filter Availability" onchange="applyFilters()">
+                <option > All</option>
+                <option > Available</option>
+                <option > Unavailable</option>
+            </select>
+
+            <button onclick="clearFilters()">
+                Clear Filter
+            </button>
+
+        </div>   
+    </div>
+
+    <div class="container">
+        <div class="sidebar">
+            <h3>Add Fleet</h3>
+            <input type="text" id="regNo" placeholder="Reg No of Vehicle"/>
+            <select id="category">
+                 <option> Select Category </option>
+                <option>Auto </option>
+                <option> Car </option>
+                <option> Truck </option>
+                 <option> Bus </option>
+            </select>
+
+            <input type="text" id="driverName" placeholder="Driver Name"/>
+             <select  id="availability">
+                <option> Select one </option>
+                <option> Available </option>
+                <option> Unavailable </option>
+             </select>
+
+        </div>
+
+    </div>
     
 </body>
 </html>
