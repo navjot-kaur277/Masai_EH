@@ -49,9 +49,64 @@
                 <option> Unavailable </option>
              </select>
 
+             <button onclick="addFleet()">
+                Add Fleet
+             </button>
+
+        </div>
+        <div class="main" id="fleetContainer">
+              fleetContainer
         </div>
 
     </div>
+
+    <script>
+        let fleetData =[];
+
+        function addFleet() {
+            const regNo = document.getElementById("regNo").value.trim();
+
+            const category = document.getElementById("category").value.trim();
+            
+            const driverName = document.getElementById("driverName").value.trim();
+
+            const availability = document.getElementById("availability").value;
+
+            if (!regNo || driverName) {
+                alert ("All feilds are required");
+                return;
+            }
+
+            fleetData.push({regNo,category,driverName,availability});
+            renderFleet();
+
+            document.getElementById("regNo").value = "";
+            document.getElementById("driverName").value = "";
+            
+        }
+
+        function renderFleet() {
+            const container = document.getElementById("fleetContainer");
+            container.innerHTML = "";
+
+            const catFilter = document.getElementById("filterCategory").value;
+            const availFilter = document.getElementById("filterAvailability").value;
+
+            fleetData.forEach((fleet,index) => {
+                if ((catFilter !== "All" && fleet.category !== catFilter) 
+            || (availFilter !== "All" && fleet.availability !== availFilter))
+            return;
+
+            const card = document.getElementById("div");
+            card.className = "card";
+            card.innerHTML = ` 
+             <img src = "https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png"/>
+              <p> <strong>  Reg No : </strong> ${fleet.regNo} </p>  
+              <p> <strong> Category : </strong> ${fleet.category} </p>
+              <p> <strong>  </strong> ${fleet.category} </p>  
+            })
+        }
+    </script>
     
 </body>
 </html>
