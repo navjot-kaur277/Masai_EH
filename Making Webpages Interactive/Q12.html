@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Basic DOM Manipulation</title>
+    <style>
+        .bold-blue {
+              font-weight: bold;
+                    color: blue;
+                        }
+                            .italic-red {
+                                  font-style: italic;
+                                        color: red;
+                                            }
+                                              </style>
+                                              </head>
+                                              <body>
+                                                <ul id="itemList">
+                                                    <li>Item 1</li>
+                                                        <li>Item 2</li>
+                                                            <li>Item 3</li>
+                                                              </ul>
+                                                                <button id="addBtn">Add Item</button>
+
+                                                                  <script>
+                                                                      const ul = document.querySelector('#itemList');
+                                                                          const button = document.getElementById('addBtn');
+
+                                                                              button.addEventListener('click', () => {
+                                                                                    const newLi = document.createElement('li');
+                                                                                          newLi.textContent = 'New Item';
+
+                                                                                                const count = ul.children.length + 1;
+                                                                                                      if (count % 2 === 1) {
+                                                                                                              newLi.classList.add('bold-blue');
+                                                                                                                    } else {
+                                                                                                                            newLi.classList.add('italic-red');
+                                                                                                                                  }
+
+                                                                                                                                        ul.appendChild(newLi);
+                                                                                                                                            });
+                                                                                                                                              </script>
+                                                                                                                                              </body>
+                                                                                                                                              </html><!DOCTYPE html>
+                                                                                                                                              <html>
+                                                                                                                                              <head>
+                                                                                                                                                <title>Basic DOM Manipulation</title>
+                                                                                                                                                  <style>
+                                                                                                                                                      .bold-blue {
+                                                                                                                                                            font-weight: bold;
+                                                                                                                                                                  color: blue;
+                                                                                                                                                                      }
+                                                                                                                                                                          .italic-red {
+                                                                                                                                                                                font-style: italic;
+                                                                                                                                                                                      color: red;
+                                                                                                                                                                                          }
+                                                                                                                                                                                            </style>
+                                                                                                                                                                                            </head>
+                                                                                                                                                                                            <body>
+                                                                                                                                                                                              <ul id="itemList">
+                                                                                                                                                                                                  <li>Item 1</li>
+                                                                                                                                                                                                      <li>Item 2</li>
+                                                                                                                                                                                                          <li>Item 3</li>
+                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                              <button id="addBtn">Add Item</button>
+
+                                                                                                                                                                                                                <script>
+                                                                                                                                                                                                                    const ul = document.querySelector('#itemList');
+                                                                                                                                                                                                                        const button = document.getElementById('addBtn');
+
+                                                                                                                                                                                                                            button.addEventListener('click', () => {
+                                                                                                                                                                                                                                  const newLi = document.createElement('li');
+                                                                                                                                                                                                                                        newLi.textContent = 'New Item';
+
+                                                                                                                                                                                                                                              const count = ul.children.length + 1;
+                                                                                                                                                                                                                                                    if (count % 2 === 1) {
+                                                                                                                                                                                                                                                            newLi.classList.add('bold-blue');
+                                                                                                                                                                                                                                                                  } else {
+                                                                                                                                                                                                                                                                          newLi.classList.add('italic-red');
+                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                      ul.appendChild(newLi);
+                                                                                                                                                                                                                                                                                          });
+                                                                                                                                                                                                                                                                                            </script>
+                                                                                                                                                                                                                                                                                            </body>
+                                                                                                                                                                                                                                                                                            </html>
