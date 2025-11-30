@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive DOM Manipulation</title>
+    <style>
+        #outputDiv {
+              padding: 20px;
+                    margin-top: 10px;
+                          background-color: lightgray;
+                              }
+                                </style>
+                                </head>
+                                <body>
+                                  <input type="text" id="colorInput" placeholder="Enter color name">
+                                    <input type="text" id="textInput" placeholder="Enter text content">
+                                      <button id="bgBtn">Change Background</button>
+                                        <button id="textBtn">Update Text</button>
+
+                                          <div id="outputDiv">Initial content of the div.</div>
+
+                                            <script>
+                                                const colorInput = document.getElementById('colorInput');
+                                                    const textInput = document.getElementById('textInput');
+                                                        const bgBtn = document.getElementById('bgBtn');
+                                                            const textBtn = document.getElementById('textBtn');
+                                                                const outputDiv = document.getElementById('outputDiv');
+
+                                                                    bgBtn.addEventListener('click', () => {
+                                                                          const color = colorInput.value.trim();
+                                                                                outputDiv.style.backgroundColor = color;
+
+                                                                                      // Check if the browser accepted the color
+                                                                                            const isValid = outputDiv.style.backgroundColor !== '';
+                                                                                                  if (!isValid) {
+                                                                                                          alert('Invalid color name!');
+                                                                                                                  outputDiv.style.backgroundColor = 'lightgray'; // reset to default
+                                                                                                                        }
+                                                                                                                            });
+
+                                                                                                                                textBtn.addEventListener('click', () => {
+                                                                                                                                      const text = textInput.value.trim();
+                                                                                                                                            if (text === '') {
+                                                                                                                                                    alert('Please enter some text!');
+                                                                                                                                                          } else {
+                                                                                                                                                                  outputDiv.textContent = text;
+                                                                                                                                                                        }
+                                                                                                                                                                            });
+                                                                                                                                                                              </script>
+                                                                                                                                                                              </body>
+                                                                                                                                                                              </html>
