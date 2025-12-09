@@ -27,7 +27,7 @@ const analyseBtn = document.getElementById("analyseBtn");
 const noDataEl = document.getElementById("noData");
 const totalTimeEl = document.getElementById("totalTime");
 const activityCountEl = document.getElementById("activityCount");
-const exportBtn = document.getElementById("exportCsvBtn"); // new button
+const exportBtn = document.getElementById("exportCsvBtn");
 
 // Auth gate
 onAuthStateChanged(auth, async (user) => {
@@ -114,7 +114,7 @@ async function editActivity(id) {
   renderSummary();
   toggleNoData();
 
-  // 🔹 Push update to Firestore immediately
+  // Push update to Firestore immediately
   if (uid && currentDate) {
     const dayRef = doc(db, `users/${uid}/days/${currentDate}`);
     await setDoc(dayRef, {
@@ -201,6 +201,13 @@ async function analyseDay() {
   await setDoc(dayRef, { activities: mapped, analysedAt: new Date().toISOString() }, { merge: true });
 
   renderCharts();
+
+  // Scroll to chart section after analysis
+  const chartSection = document.getElementById("chartSection");
+  if (chartSection) {
+    chartSection.scrollIntoView({ behavior: "smooth" });
+  }
+
   alert("Analysis updated for this date.");
 }
 
@@ -220,26 +227,57 @@ let barInstance = null;
 function renderCharts() {
   const { labels, values } = groupedByCategory();
 
-  const pieCtx = document.getElementById("pieChart");
-  const barCtx = document.getElementById("barChart");
+  const pieCanvas = document.getElementById("pieChart");
+  const barCanvas = document.getElementById("barChart");
+  const pieCtx = pieCanvas.getContext("2d");
+  const barCtx = barCanvas.getContext("2d");
 
   if (pieInstance) pieInstance.destroy();
   if (barInstance) barInstance.destroy();
 
+  // Gradient fills for pie slices (light -> dark for depth)
+  const gradients = [
+    pieCtx.createLinearGradient(0, 0, 0, 200),
+    pieCtx.createLinearGradient(0, 0, 0, 200),
+    pieCtx.createLinearGradient(0, 0, 0, 200),
+    pieCtx.createLinearGradient(0, 0, 0, 200),
+    pieCtx.createLinearGradient(0, 0, 0, 200),
+    pieCtx.createLinearGradient(0, 0, 0, 200)
+  ];
+  gradients[0].addColorStop(0, "#a5b4fc"); gradients[0].addColorStop(1, "#6366f1"); // indigo
+  gradients[1].addColorStop(0, "#67e8f9"); gradients[1].addColorStop(1, "#22d3ee"); // cyan
+  gradients[2].addColorStop(0, "#6ee7b7"); gradients[2].addColorStop(1, "#10b981"); // green
+  gradients[3].addColorStop(0, "#fcd34d"); gradients[3].addColorStop(1, "#f59e0b"); // amber
+  gradients[4].addColorStop(0, "#fca5a5"); gradients[4].addColorStop(1, "#ef4444"); // red
+  gradients[5].addColorStop(0, "#c4b5fd"); gradients[5].addColorStop(1, "#8b5cf6"); // violet
+
+  // Pie chart
   pieInstance = new Chart(pieCtx, {
     type: "pie",
     data: {
       labels,
       datasets: [{
         data: values,
-        backgroundColor: ["#6366f1","#22d3ee","#10b981","#f59e0b","#ef4444","#8b5cf6"]
+        backgroundColor: gradients,
+        borderColor: "#ffffff",
+        borderWidth: 2
       }]
     },
     options: {
+      plugins: {
+        legend: { position: "bottom" },
+        tooltip: { enabled: true }
+      },
       animation: { animateRotate: true, animateScale: true }
     }
   });
 
+  // Vertical gradient for bar chart (gives depth)
+  const barGradient = barCtx.createLinearGradient(0, 0, 0, 400);
+  barGradient.addColorStop(0, "#22d3ee");
+  barGradient.addColorStop(1, "#0ea5e9");
+
+  // Bar chart
   barInstance = new Chart(barCtx, {
     type: "bar",
     data: {
@@ -247,28 +285,36 @@ function renderCharts() {
       datasets: [{
         label: "Minutes",
         data: values,
-        backgroundColor: "#22d3ee"
+        backgroundColor: barGradient,
+        borderColor: "#0ea5e9",
+        borderWidth: 2,
+        borderRadius: 6
       }]
     },
     options: {
-      scales: { y: { beginAtZero: true } },
-      animation: { duration: 600 }
+      scales: {
+        y: { beginAtZero: true, ticks: { stepSize: 60 } },
+        x: { ticks: { autoSkip: false } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: true }
+      },
+      animation: { duration: 800, easing: "easeOutBounce" }
     }
   });
 }
 
-// 📊 Export to CSV
+// Export to CSV
 function exportToCSV() {
   if (activities.length === 0) return alert("No data to export.");
 
-  // Build CSV rows
   let csvContent = "data:text/csv;charset=utf-8,";
-  csvContent += "Activity,Category,Duration (minutes)\n";  // ✅ header row
+  csvContent += "Activity,Category,Duration (minutes)\n";
   activities.forEach(a => {
-    csvContent += `${a.name},${a.category},${a.duration}\n`;  // ✅ each activity row
+    csvContent += `${a.name},${a.category},${a.duration}\n`;
   });
 
-  // Create downloadable link
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
