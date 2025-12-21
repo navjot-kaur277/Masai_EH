@@ -1,6 +1,6 @@
 import React,{
-    createContext, userState , useEffect, 
-    Children} from "react";
+    createContext, useState , useEffect,}
+     from "react";
 
 export const PostContext = 
         createContext();
@@ -8,7 +8,7 @@ export const PostContext =
 export const PostProvider = 
 ({Children}) => {
     const [posts , setPosts] =
-    userState([]);
+    useState([]);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -17,11 +17,11 @@ export const PostProvider =
       setPosts(data.slice(0,20)));
     }, []);
 
-    const deletePost = (id )=> setPosts(posts.filter(p=>p.id !==id));
+    const deletePost = (id )=> setPosts(posts.filter(post => post.id !== id));
 
-    const updatePost = (id, updatedData) => {
-        setPosts(posts.map(p=>p.id === id? {
-            ...p, ...updatedData } :p ));
+    const updatePost = (id, newTitle) => {
+        setPosts(posts.map(posts =>post.id === id? {
+            ...post, title: newTitle } :post ));
     };
 
     return (
