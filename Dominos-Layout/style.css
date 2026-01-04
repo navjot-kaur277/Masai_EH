@@ -1,0 +1,363 @@
+/* Base Styles and Setup */
+:root {
+    --primary-red: #f80015;
+    --dominos-blue: #00458B;
+    --dark-text: #222;
+    --light-grey-bg: #f7f7f7;
+    --serif-font: 'Playfair Display', serif;
+    --sans-font: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--sans-font);
+    color: var(--dark-text);
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    font-family: var(--serif-font);
+    font-weight: 900;
+    font-size: 3rem;
+    padding: 40px 0 30px;
+}
+
+/* --- 1. Navbar Section Styles --- */
+.navbar {
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.brand { 
+    font-family: var(--serif-font);
+    font-size: 2.2rem;
+    color: var(--dominos-blue);
+    font-weight: 700;
+}
+
+.menu { 
+    display: flex;
+    gap: 30px;
+}
+
+.menu__item {
+    text-decoration: none;
+    color: var(--dominos-blue);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.menu__item:hover {
+    color: var(--primary-red);
+}
+
+.menu__item.active-link {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+.btn--primary { 
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn--primary:hover {
+    background-color: #c91626;
+}
+
+/* --- 2. Order Section Styles (Corrected button shape) --- */
+.top-section {
+    padding-top: 20px;
+}
+
+.grid--top { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card--top { 
+    padding: 20px;
+    text-align: center;
+    color: white;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--primary-red); 
+}
+
+.card__img { 
+    width: 70%;
+    max-width: 180px;
+    border: 5px solid white; 
+    margin-bottom: 15px;
+}
+
+.card__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.card__text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0 10px;
+    margin-bottom: 20px;
+}
+
+.btn--ghost { 
+    background-color: white;
+    color: var(--primary-red);
+    border: none;
+    padding: 10px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0; /* FIX: Set to 0 for rectangular button */
+}
+
+/* --- 3. Explore Section Styles --- */
+.mid-section {
+    padding: 40px 0 80px;
+}
+
+.grid--mid { 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.explore-card { 
+    border: 1px solid #ddd;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s;
+    height: 100%; 
+    justify-content: space-between; 
+}
+
+.explore-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.explore-icon-img { 
+    width: 50px; 
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.explore-card__title {
+    font-family: var(--serif-font);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.explore-card__text { 
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* .discover-btn { 
+    background: none;
+    color: var(--primary-red);
+    border: 1px solid var(--primary-red);
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+    transition: background-color 0.3s;
+} */
+
+.discover-btn { 
+    background: none;
+    color: var(--primary-red);
+    border: none; 
+    
+    padding: 10px 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: auto;
+    border-top: 1px solid #ccc; 
+    padding-top: 15px;        
+    margin-top: 25px;         
+    
+    transition: background-color 0.3s;
+}
+
+.discover-btn:hover {
+    background-color: var(--primary-red);
+    color: white;
+}
+
+/* --- 4. Bottom Section Styles (Simpler, using combined phone image) --- */
+.bottom-section { 
+    background-color: var(--light-grey-bg);
+    padding: 60px 0;
+    min-height: 400px; /* Adjust as needed */
+}
+
+.bottom__wrap { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px; /* Space between phones and text content */
+}
+
+.bottom__phones { 
+    flex: 1;
+    display: flex; /* Use flex to center the image if needed */
+    justify-content: center;
+    align-items: center;
+}
+
+.phones-combined-img {
+    max-width: 100%; /* Ensure the image scales down */
+    height: auto;
+    display: block; /* Remove extra space below image */
+    /* Set a max-height if you want to control its overall size */
+    max-height: 380px; /* Adjust this value to match your desired height */
+    object-fit: contain; /* Ensure the image fits without cropping */
+}
+
+.bottom__content { 
+    flex: 1;
+    max-width: 500px;
+    text-align: right;
+}
+
+.bottom__title { 
+    font-family: var(--serif-font);
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+}
+
+.bottom__subtitle { 
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+.app-badges-group { 
+    display: flex;
+    justify-content: flex-end; /* Align to the right as in the image */
+    gap: 15px; /* Space between the two buttons */
+    margin-top: 20px;
+}
+
+.app-badge { 
+    height: 50px; /* Standardize button height */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; 
+}
+
+/* --- Responsiveness (Media Queries) --- */
+
+/* Tablet and Smaller Desktop */
+@media (max-width: 1024px) {
+    .navbar__wrap { padding: 20px 0; }
+    .menu { gap: 20px; }
+    .grid--top { grid-template-columns: repeat(2, 1fr); }
+    .grid--mid { grid-template-columns: repeat(2, 1fr); }
+    .bottom-section { padding: 40px 0; }
+    .bottom__wrap {
+        flex-direction: column; /* Stack elements vertically */
+        text-align: center;
+    }
+    .bottom__phones { margin-bottom: 40px; } /* Add space above content */
+    .phones-combined-img {
+        max-height: 300px; /* Adjust for tablet size */
+    }
+    .bottom__content { max-width: 100%; }
+    .bottom__title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+    .bottom__subtitle { text-align: center; }
+    .app-badges-group { justify-content: center; } /* Center buttons on tablet */
+}
+
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+    .navbar__wrap {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .brand {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .menu {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+    }
+    .menu__item { font-size: 0.8rem; }
+    .btn--primary { width: 80%; }
+    .section-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .grid--top { grid-template-columns: 1fr; }
+    .grid--mid { grid-template-columns: 1fr; }
+    .explore-card__text { min-height: auto; }
+    
+    .phones-combined-img {
+        max-height: 250px; /* Adjust for mobile size */
+    }
+
+    .bottom__title {
+        font-size: 2rem;
+    }
+
+    .app-badges-group {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        align-items: center; 
+        gap: 10px;
+    }
+}
