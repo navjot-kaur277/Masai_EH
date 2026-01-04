@@ -1,0 +1,9 @@
+function timer(duration, onComplete) {
+  setTimeout(function() {
+    onComplete("Timer of " + duration + " ms finished");
+  }, duration);
+}
+
+timer(2000, function(message) {
+  console.log(message);
+});

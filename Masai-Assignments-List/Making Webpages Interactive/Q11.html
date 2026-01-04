@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Manipulation</title>
+    <style>
+        .container {
+              padding: 10px;
+                    margin-top: 10px;
+                        }
+                          </style>
+                          </head>
+                          <body>
+                            <h1 id="mainHeading">Original Heading</h1>
+
+                              <p>Paragraph 1</p>
+                                <p>Paragraph 2</p>
+                                  <p>Paragraph 3</p>
+
+                                    <div class="container">
+                                        This is the container div.
+                                          </div>
+
+                                            <script>
+                                                // 1. Change <h1> text content
+                                                    const heading = document.getElementById('mainHeading');
+                                                        heading.textContent = 'Welcome to the DOM World!';
+
+                                                            // 2. Change all <p> text color to blue
+                                                                const paragraphs = document.getElementsByTagName('p');
+                                                                    for (let i = 0; i < paragraphs.length; i++) {
+                                                                          paragraphs[i].style.color = 'blue';
+                                                                              }
+
+                                                                                  // 3. Change background color of first .container <div>
+                                                                                      const containerDiv = document.querySelector('.container');
+                                                                                          containerDiv.style.backgroundColor = 'yellow';
+                                                                                            </script>
+                                                                                            </body>
+                                                                                            </html>
