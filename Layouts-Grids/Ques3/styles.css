@@ -1,0 +1,87 @@
+/* styles.css */
+body {
+  font-family: Georgia, serif;
+  background: #fff;
+  margin: 30px;
+  color: #0b6b6b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 800;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #0b6b6b;
+}
+
+.calculator {
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 0 20px rgb(0 0 0 / 0.08);
+  border-radius: 0;
+  width: 320px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.display {
+  grid-column: 1 / -1;
+  font-size: 1.6rem;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow:
+    0 4px 8px rgb(0 0 0 / 0.1),
+    inset 0 2px 4px rgb(255 255 255 / 0.8);
+  border: none;
+  /* outline: none; */
+  user-select: none;
+  pointer-events: none;
+  background-color: #f9f9f9;
+  color: #222;
+  font-weight: 700;
+}
+
+button {
+  width: 70px;
+  height: 70px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  border-radius: 15px;
+  cursor: pointer;
+  border: none;
+  box-shadow:
+    0 4px 12px rgb(0 0 0 / 0.1),
+    inset 0 2px 2px rgb(255 255 255 / 0.9);
+  transition: transform 0.1s ease;
+  padding: 0;
+  user-select: none;
+}
+
+
+button:active {
+  transform: scale(0.95);
+}
+
+.num, .display {
+  background-color: #fff;
+  color: #000;
+  box-shadow:
+    0 3px 10px rgb(0 0 0 / 0.07),
+    inset 0 1px 2px rgb(255 255 255 / 0.4);
+}
+
+.op, .equal {
+  background-color: #000;
+  color: #fff;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
+
+.clear {
+  background-color: #f31212;
+  color: #fff;
+  font-weight: 800;
+   box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+}
