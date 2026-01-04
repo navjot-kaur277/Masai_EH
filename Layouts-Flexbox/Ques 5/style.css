@@ -1,0 +1,73 @@
+/* 1. Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc;
+    margin: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* 2. Main Container */
+.main-container {
+    background-color: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 1400px;
+    box-sizing: border-box;
+}
+
+/* 3. Flexbox Grid Container */
+.logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+/* 4. Logo Item Styling */
+.logo-item {
+    flex: 0 0 calc(10% - 15px); 
+    aspect-ratio: 1 / 1;        
+    box-sizing: border-box;
+
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+
+/* 5. Logo Image Styling */
+.logo-item img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* 6. Hover Effect */
+.logo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 7. Row Highlighting (Optional) */
+.logo-item:nth-child(-n+10) {
+    border-color: #e3f2fd; /* Row 1 */
+}
+.logo-item:nth-child(n+11):nth-child(-n+20) {
+    border-color: #fff3e0; /* Row 2 */
+}
+.logo-item:nth-child(n+21):nth-child(-n+30) {
+    border-color: #e8f5e9; /* Row 3 */
+}

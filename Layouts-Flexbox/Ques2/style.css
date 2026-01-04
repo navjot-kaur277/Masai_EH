@@ -1,0 +1,92 @@
+/* Color Variables for easy theme changes */
+:root {
+    --main-bg-color: #baacd7 ; /* Light purple for the main container */
+    --box-bg-color: #ffffff; /* White/Light background for internal boxes */
+    --purple-text-color: #4e2971; /* Darker purple for main title */
+    --stat-color: #7547b2; /* Primary color for 60% */
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Main Vertical Container Styling */
+.vertical-box-container {
+    width: 300px; /* Fixed width for the entire card */
+    background-color: var(--main-bg-color);
+    border-radius: 20px; /* Rounded corners for the entire card */
+    padding: 20px;
+    box-shadow: 0 10px 25px var(--box-shadow-color); 
+    bottom: 0%;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+/* 2. Header Content Styling */
+.header-content {
+    text-align: center;
+    margin-bottom: 20px; /* Space below the header before the first box */
+}
+
+.main-title {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--purple-text-color);
+    line-height: 1.2;
+    margin: 0; 
+    padding: 0 10px; 
+    font-style: italic;
+}
+
+.stat-box-1 {
+    background-color: var(--box-bg-color);
+    text-align: center;
+    border-radius: 0%; 
+    padding: 15px px; 
+    margin-bottom: 15px; 
+    margin-left: 25px;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px rgba(100, 60, 150, 0.15); 
+}
+
+/* 3. Individual Box Styling */
+.stat-box {
+    background-color: var(--box-bg-color);
+    text-align: center;
+    border-radius: 5px; 
+    padding: 15px 20px; 
+    margin: 30px;
+    margin-bottom: 15px; 
+    margin-left: 25px;
+    margin-right: 25px;
+    box-shadow: 0 4px 8px rgba(100, 60, 150, 0.15); 
+ }
+
+/* 4. Text Styling inside the Boxes */
+.stat-label {
+    font-size: 1em;
+    margin-top: 25px;
+    padding-top: 0.9em;
+    font-weight: 400;
+    color: #444; 
+    margin: 0 0 5px 0;
+}
+
+.stat-value {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #333; 
+    margin: 0;
+    padding-bottom: 0.5em; 
+}
+
+/* Specific style for the highlighted percentage value */
+.stat-value.primary-color {
+    color: var(--stat-color); 
+    font-weight: 700;
+    font-size: 2.2em; 
+}
+
+/* Style for the last box if needed, e.g., to adjust bottom margin */
+.stat-box.last-box {
+    height: 20PX;
+    margin-bottom:0%;
+    padding-bottom: 0%;
+}
